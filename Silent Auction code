@@ -1,0 +1,65 @@
+import os
+
+# Displaying the welcome message for the program
+
+print("***************WELCOME TO THE SILENT AUCTION PROGRAM****************")
+
+# Function to find the highest bidder and announce the winner
+
+def find_winner(bidder_details):
+highest_bid=0
+winner=""
+
+```
+# Loop through all bidders in the dictionary
+for bidder in bidder_details:
+
+    # Accessing the bid amount of each bidder
+    bidding_price=bidder_details[bidder]
+
+    # Checking if the current bid is higher than the previous highest bid
+    if bidding_price>highest_bid:
+        highest_bid=bidding_price
+        winner=bidder
+
+# Displaying all bidder details
+print(f"Here is the list of all the bidders : {bidder_details}")
+
+# Displaying the winner with the highest bid
+print(f"The winner is {winner} with a bid price of {highest_bid}")
+```
+
+# Dictionary to store bidder names and their bid amounts
+
+bidder_data={}
+
+# Variable to control the bidding loop
+
+end_of_bidding=False
+
+# Loop continues until there are no more bidders
+
+while not end_of_bidding:
+
+```
+# Taking bidder's name as input
+name=input("What is your name? ")
+
+# Taking bidder's bid amount as input
+price=int(input("What is your bid? :"))
+
+# Storing bidder name and price in the dictionary
+bidder_data[name]=price
+
+# Asking if there are more bidders
+more_bidders=input("Are there more bidders ? Type  'yes' or 'no' : ").lower()
+
+# If no more bidders, end the auction and find the winner
+if more_bidders == 'no':
+    end_of_bidding=True
+    find_winner(bidder_data)
+
+# If there are more bidders, clear the screen for the next user
+elif more_bidders == 'yes':
+    os.system('cls')
+```
